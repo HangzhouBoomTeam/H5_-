@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="background">
+  <div id="app">
      <div class=" back-quare background" height="100%">
 
         <div class="red-back card">
@@ -51,7 +51,7 @@ export default {
   width: 100%;
 }
 body{
-  height: 100%;
+  height: 97%;
 }
 .background {
   height: 100%;

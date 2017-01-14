@@ -1,21 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+     <div class="background back-quare" >
+
+        <div class="red-back card">
+
+        </div>
+        <div class="yellow-back back-quare card">
+          <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
+          <img class="left-img" src="./assets/left.png" alt="" width="40px" height="40px">
+            <div class="guess">
+                      <!--<img src="./assets/2017.png"  >-->
+                <i class="guess-img">
+
+                </i>
+            </div>
+            <div class="meet">
+              <i class="meet-img"></i>
+            </div>
+            <div class="name-input" >
+                <input type="text" name="name" value="" placeholder="请输入姓名">
+            </div>
+            <p class="tip">tips:</p>
+            <p class="tip-detail">你好，我是好好先生</p>
+        </div>
+        
+    </div>
+
   </div>
 </template>
 
@@ -35,26 +45,112 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
+ 
 }
 
-h1, h2 {
-  font-weight: normal;
+.background {
+  height: 40rem;
+  background-color: #fff;
+  
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.back-quare {
+  background-size: 20rem 20rem;
+  border: solid 1px #f8f8f8;
+  background-image:
+     -webkit-repeating-linear-gradient(0deg, #eee, #eee 1px, transparent 0px, transparent 12px),
+     -webkit-repeating-linear-gradient(90deg, #eee, #eee 1px, transparent 0px, transparent 12px);
 }
-
-li {
+.card {
+  width: 75%;
+  height: 70%;
+  border: solid 3px #000;
+  border-radius: 2%;
+  position: absolute;
+  top: 80px;
+  left: 12.5%;
+}
+.red-back {
+  background-color: #F6414A;
+  
+  transform:rotate(5deg);
+-ms-transform:rotate(5deg); 	/* IE 9 */
+-moz-transform:rotate(7deg); 	/* Firefox */
+-webkit-transform:rotate(5deg); /* Safari 和 Chrome */
+-o-transform:rotate(7deg); 
+  
+}
+.yellow-back {
+  background-color: #F7FC18;
+}
+.right-img {
+  position: absolute;
+  top: 15%;
+  right: -10%;
+}
+.guess {
+    width: 100%;
+    height:15%;
+    margin-top: 10%;
+    /*padding: 20% 0 0 20%;*/
+    /*margin: 10% 25% 2% 25%;;*/
+    /*background-size: 30px 30px;
+    background-image: url('./assets/guess.png');*/
+}
+.meet {
+    width: 100%;
+    height:18%;
+    margin-top: -10px;
+    /*margin-top: 10%;*/
+}
+.meet-img {
+  background-image: url(./assets/qiyu.png) ;
+  background-repeat: no-repeat;
+  background-position-x : center;
+  background-size: 90% 100%;
+  width: 100%;
+  height: 100%;
   display: inline-block;
-  margin: 0 10px;
+}
+.guess-img {
+  background-image: url(./assets/2017.png) ;
+  background-repeat: no-repeat;
+  background-position-x : center;
+  background-size: 70% 100%;
+  width: 100%;
+  height: 100%;
+    display: inline-block;
+
+  /*width: 100%;
+  height: 100%;*/
+
+}
+.left-img {
+   position: absolute;
+  top: -5%;
+  left: 5%;
 }
 
-a {
-  color: #42b983;
+.name-input {
+  height: 10%;
+  margin-top: 20%;
+  text-align: center;
+}
+.name-input input  {
+  height: 100%;
+  border: solid 3px #000;
+  border-radius: 7%;
+  width: 75%;
+}
+
+.tip {
+  margin:  10% 12.5% 0 12.5%;
+  font-weight: bold;
+}
+.tip-detail {
+  color: #A7A428;
+  margin: 2px 12.5%;
+  font-size: 14px;
 }
 </style>

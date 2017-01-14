@@ -20,8 +20,12 @@
             <div class="name-input" >
                 <input type="text" name="name" value="" placeholder="请输入姓名">
             </div>
+            
             <p class="tip">tips:</p>
             <p class="tip-detail">你好，我是好好先生</p>
+            <div class="start-btn">
+                <i class="start-btn-img"><span></span></i>
+        </div>
         </div>
         
     </div>
@@ -145,9 +149,12 @@ body{
 .name-input input  {
   height: 100%;
   border: solid 3px #000;
-  border-radius: 7%;
+  border-radius: 10px;
   width: 75%;
+  font-size: 20px;
 }
+nput::-ms-input-placeholder{text-align: center;color: #000}
+input::-webkit-input-placeholder{text-align: center; color: #000}
 
 .tip {
   margin:  10% 12.5% 0 12.5%;
@@ -157,5 +164,25 @@ body{
   color: #A7A428;
   margin: 2px 12.5%;
   font-size: 14px;
+}
+.start-btn {
+     height: 50px;
+    position: absolute;
+    bottom: -5%;
+    width: 100%;
+    text-align: center;
+}
+
+.start-btn-img {
+  background-image: url(./assets/start.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-size: 100% 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100%;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-     <div class="background back-quare" >
+  <div id="app" class="background">
+     <div class=" back-quare background" height="100%">
 
         <div class="red-back card">
 
@@ -47,15 +47,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   /*margin-top: 60px;*/
- 
+ height: 100%;
+  width: 100%;
 }
-
+body{
+  height: 100%;
+}
 .background {
-  height: 40rem;
+  height: 100%;
+  width: 100%;
   background-color: #fff;
   
 }
 .back-quare {
+  
   background-size: 20rem 20rem;
   border: solid 1px #f8f8f8;
   background-image:

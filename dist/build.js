@@ -8619,7 +8619,11 @@ exports = module.exports = __webpack_require__(3)();
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "#app{font-family:Avenir,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#2c3e50;height:100%;width:100%}body{height:97%}.background{height:100%;width:100%;background-color:#fff}.back-quare{background-size:20rem 20rem;border:1px solid #f8f8f8;background-image:-webkit-repeating-linear-gradient(0deg,#eee,#eee 1px,transparent 0,transparent 12px),-webkit-repeating-linear-gradient(90deg,#eee,#eee 1px,transparent 0,transparent 12px)}.card{width:75%;height:70%;border:3px solid #000;border-radius:2%;position:absolute;top:80px;left:12.5%}.red-back{background-color:#f6414a;transform:rotate(5deg);-ms-transform:rotate(5deg);-moz-transform:rotate(7deg);-webkit-transform:rotate(5deg);-o-transform:rotate(7deg)}.yellow-back{background-color:#f7fc18}.right-img{position:absolute;top:15%;right:-10%}.guess{width:100%;height:15%;margin-top:10%}.meet{width:100%;height:18%;margin-top:-10px}.meet-img{background-image:url(" + __webpack_require__(6) + ");background-repeat:no-repeat;background-position-x:center;background-size:90% 100%}.guess-img,.meet-img{width:100%;height:100%;display:inline-block}.guess-img{background-image:url(" + __webpack_require__(4) + ");background-repeat:no-repeat;background-position-x:center;background-size:70% 100%}.left-img{position:absolute;top:-5%;left:5%}.name-input{height:10%;margin-top:20%;text-align:center}.name-input input{height:100%;border:3px solid #000;border-radius:10px;width:75%;font-size:20px}nput::-ms-input-placeholder{text-align:center;color:#000}input::-webkit-input-placeholder{text-align:center;color:#000}.tip{margin:10% 12.5% 0;font-weight:700}.tip-detail{color:#a7a428;margin:2px 12.5%;font-size:14px}.start-btn{height:50px;position:absolute;bottom:-5%;width:100%;text-align:center}.start-btn-img{background-image:url(" + __webpack_require__(8) + ");background-repeat:no-repeat;display:inline-block;width:50%;height:100%;background-size:100% 100%;text-align:center;font-weight:700;font-size:20px;line-height:100%}", ""]);
+=======
+exports.push([module.i, "#app{font-family:Avenir,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#2c3e50;width:100%}#app,body{height:100%}body{margin:0}.background{height:100%;width:100%;background-color:#fff}.back-quare{background-size:20rem 20rem;border:1px solid #f8f8f8;background-image:-webkit-repeating-linear-gradient(0deg,#eee,#eee 1px,transparent 0,transparent 12px),-webkit-repeating-linear-gradient(90deg,#eee,#eee 1px,transparent 0,transparent 12px)}.card{width:75%;height:70%;border:3px solid #000;border-radius:2%;position:absolute;top:80px;left:12.5%}.red-back{background-color:#f6414a;transform:rotate(5deg);-ms-transform:rotate(5deg);-moz-transform:rotate(7deg);-webkit-transform:rotate(5deg);-o-transform:rotate(7deg)}.yellow-back{background-color:#f7fc18}.right-img{position:absolute;top:15%;right:-10%}.guess{width:100%;height:15%;margin-top:10%}.meet{width:100%;height:18%;margin-top:-10px}.meet-img{background-image:url(" + __webpack_require__(6) + ");background-repeat:no-repeat;background-position-x:center;background-size:90% 100%}.guess-img,.meet-img{width:100%;height:100%;display:inline-block}.guess-img{background-image:url(" + __webpack_require__(4) + ");background-repeat:no-repeat;background-position-x:center;background-size:70% 100%}.left-img{position:absolute;top:-5%;left:5%}.name-input{height:10%;margin-top:20%;text-align:center}.name-input input{height:100%;border:3px solid #000;border-radius:10px;width:75%;font-size:20px}nput::-ms-input-placeholder{text-align:center;color:#000}input::-webkit-input-placeholder{text-align:center;color:#000}.tip{margin:10% 12.5% 0;font-weight:700}.tip-detail{color:#a7a428;margin:2px 12.5%;font-size:14px}.start-btn{height:50px;position:absolute;bottom:-5%;width:100%;text-align:center}.start-btn-img{background-image:url(" + __webpack_require__(8) + ");background-repeat:no-repeat;display:inline-block;width:50%;height:100%;background-size:100% 100%;text-align:center;font-weight:700;font-size:20px;line-height:100%;background-color:inherit;border:none}", ""]);
+>>>>>>> a52a89938519cb95f540b72ec15ab793c654c421
 
 // exports
 
@@ -8708,7 +8712,11 @@ module.exports = __webpack_require__.p + "right.png?1aca83fc50a577a822264ab8e5a7
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__.p + "start.png?a09753b4618b5c92235622ad53d74243";
+=======
+module.exports = __webpack_require__.p + "start.png?db7dbf32bda49256a83429a6fceb64e1";
+>>>>>>> a52a89938519cb95f540b72ec15ab793c654c421
 
 /***/ },
 /* 9 */
@@ -8948,8 +8956,13 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
+<<<<<<< HEAD
 		module.hot.accept("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.10.0.2@vue-loader/lib/style-rewriter.js?id=data-v-a0973534!./../node_modules/.10.0.2@vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
 			var newContent = require("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.10.0.2@vue-loader/lib/style-rewriter.js?id=data-v-a0973534!./../node_modules/.10.0.2@vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
+=======
+		module.hot.accept("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.10.0.2@vue-loader/lib/style-rewriter.js?id=data-v-30ead1c2!./../node_modules/.10.0.2@vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
+			var newContent = require("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.10.0.2@vue-loader/lib/style-rewriter.js?id=data-v-30ead1c2!./../node_modules/.10.0.2@vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
+>>>>>>> a52a89938519cb95f540b72ec15ab793c654c421
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -9024,9 +9037,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "start-btn"
+<<<<<<< HEAD
   }, [_c('i', {
     staticClass: "start-btn-img"
   }, [_c('span')])])
+=======
+  }, [_c('button', {
+    staticClass: "start-btn-img"
+  }, [_vm._v("开始预测")])])
+>>>>>>> a52a89938519cb95f540b72ec15ab793c654c421
 }]}
 
 /***/ },

@@ -18,13 +18,13 @@
               <i class="meet-img"></i>
             </div>
             <div class="name-input" >
-                <input type="text" name="name" value="" placeholder="请输入姓名">
+                <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
             </div>
             
             <p class="tip">tips:</p>
             <p class="tip-detail">你好，我是好好先生</p>
             <div class="start-btn">
-                <i class="start-btn-img"><span></span></i>
+                <button class="start-btn-img" @click="startGuess">开始预测</button>
         </div>
         </div>
         
@@ -35,13 +35,23 @@
 
 <script>
 export default {
-  name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      name: ''
+    }
+  },
+  methods:{
+    startGuess(){
+      if(this.name.length === 0) {
+          return ;
+      }
+      this.$router.push({
+                    name: 'my'
+                });
     }
   }
 }
+
 </script>
 
 <style>
@@ -55,7 +65,8 @@ export default {
   width: 100%;
 }
 body{
-  height: 97%;
+  height: 100%;
+  margin: 0 0;
 }
 .background {
   height: 100%;
@@ -152,9 +163,13 @@ body{
   border-radius: 10px;
   width: 75%;
   font-size: 20px;
+  text-align: center;
 }
 nput::-ms-input-placeholder{text-align: center;color: #000}
 input::-webkit-input-placeholder{text-align: center; color: #000}
+input:focus{
+  outline: none;
+}
 
 .tip {
   margin:  10% 12.5% 0 12.5%;
@@ -171,6 +186,7 @@ input::-webkit-input-placeholder{text-align: center; color: #000}
     bottom: -5%;
     width: 100%;
     text-align: center;
+
 }
 
 .start-btn-img {
@@ -184,5 +200,7 @@ input::-webkit-input-placeholder{text-align: center; color: #000}
   font-weight: bold;
   font-size: 20px;
   line-height: 100%;
+  background-color:inherit;
+  border: none;
 }
 </style>

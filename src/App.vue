@@ -240,16 +240,21 @@ input:focus{
   bottom: -13px;*/
 }
 .start-btn-img {
+  background-image: url(./assets/start.png);
+  background-repeat: no-repeat;
   display: inline-block;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   line-height: 100%;
-  padding: 10px 20px;
+  width: 144px;
+  height: 50px;
+  background-size: 100% 100%;
+  /*padding: 10px 20px;*/
   background-color:inherit;
-    border: solid 2px #000;
+    /*border: solid 2px #000;
     border-radius: 20px;
     box-shadow:0 5px #4471E6;
-    background-color: #F7FD18;
+    background-color: #F7FD18;*/
 }
 </style>

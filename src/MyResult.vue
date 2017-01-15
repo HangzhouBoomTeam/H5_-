@@ -4,34 +4,61 @@
       <div class="cards">
         <div class="card-my footest"></div>
         <div class="card-my middle"></div>
-        <div class="card-my top">
+         <div class="card-my copy">
+            <img src="" id="show_img" style="width: 100%;height:100%">
+        </div>
+        <div class="card-my top" id="template">
             <p class="date"><span >2017年2月</span></p>
             <p class="later">过儿<span class="will">将会在</span></p>
             <p class="one">一</p>
             <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
             <p class="wedding">举行盛大的婚礼</p>
+            <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
         </div>
+       
       </div>
         
         <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
         <div class="btns">
-              <i class="again-img">再玩一次</i>
-              <i class="share-img">分享出去</i>
+            <div class="btn">
+              <i class="again-img"></i>再玩一次
+            </div>
+            <div class="btn">
+              <i class="share-img"></i>分享出去
+            </div>
         </div>
 
         <div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
             <a href="">点击下载-></a>
-          
         </div>
     </div>
 </template>
 <script>
 export default {
-       
-    };
+  
+     mounted(){
+html2canvas(document.getElementById('template'),{canvas:null}).then(function(canvas){
+    console.log(canvas);
+     var dataUrl = canvas.toDataURL();
+     self.src = dataUrl
+     // document.getElementById('template').remove()
+     document.getElementById('show_img').src = dataUrl
+})
+       // html2canvas(document.getElementById('template'),{
+       //    onrendered:function(canvas){
+       //      var dataUrl = canvas.toDataURL();
+       //      // var newImg = document.createElement("img");
+       //      // newImg.src =  dataUrl;
+       //      // document.getElementById('template').remove()
+       //      document.getElementById('show_img').src = dataUrl
+       //      // document.body.appendChild(newImg);                
+       //    }
+       // })
+     }
+};
 
 </script>
 <style>
@@ -75,6 +102,14 @@ body{
   top: 80px;
   left: 10%;
 }
+.card-my .find_fun{
+  font-size: 8px;
+  position: absolute;
+  bottom: 4px;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
 .background {
   height: 100%;
   /*width: 100%;*/
@@ -94,6 +129,10 @@ body{
   background-color: #F7FD18 ;
   background-image: url(./assets/ghost.png);
   background-size: 100% 100%;
+  pointer-events:none;
+}
+.copy{
+  border: none;
 }
 .middle {
   background-color: #F6414A;
@@ -137,6 +176,7 @@ transform:rotate(3deg);
   /*font-weight: bold;*/
   font-size: 32px;
 }
+
 .address-img {
   width: 20px;
   height: 27px;
@@ -204,11 +244,20 @@ transform:rotate(3deg);
   position: absolute;
   height: 50px;
   bottom: 18%;
-  
+  width: 100%;
+  text-align: center;;
+}
+.btn{
+  display: inline-block;
+  background-color: #fff;
+  border: solid 2px #000;
+  padding: 3px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 12px;
 }
 .btns ul {
     text-align: center;
-
 }
 .btns li {
   list-style: none;
@@ -232,6 +281,7 @@ transform:rotate(3deg);
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
+      margin-bottom: 3px;
 }
 .share-img {
   width: 15px ;
@@ -241,7 +291,7 @@ transform:rotate(3deg);
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
-
+    margin-bottom: 3px;
 
 }
 </style>

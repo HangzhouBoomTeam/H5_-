@@ -117,8 +117,8 @@ body{
   display: inline-block;
 }
 .run-img {
-  width: 100px;
-  height: 100px;
+  width: 33%;
+  height: 25%;
   background-image: url(./assets/run.png);
   background-size: 100% 100%;
   display: inline-block;
@@ -236,20 +236,26 @@ input:focus{
 
 }
 .start-span {
-  /*position: relative;
-  bottom: -13px;*/
+  display: inline-block;
+  margin-top: 11px;
 }
 .start-btn-img {
+  background-image: url(./assets/start.png);
+  background-repeat: no-repeat;
   display: inline-block;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   line-height: 100%;
-  padding: 10px 20px;
+  width: 144px;
+  height: 50px;
+  background-size: 100% 100%;
+  /*padding: 10px 20px;*/
   background-color:inherit;
-    border: solid 2px #000;
+    /*border: solid 2px #000;
     border-radius: 20px;
     box-shadow:0 5px #4471E6;
-    background-color: #F7FD18;
+    background-color: #F7FD18;*/
+
 }
 </style>

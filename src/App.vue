@@ -69,8 +69,13 @@ export default {
  height: 100%;
   width: 100%;
 }
+*{
+  box-sizing: border-box;
+}
 body{
   height: 100%;
+  position: relative;
+  min-height: 586px;
   margin: 0 0;
 }
 .background {

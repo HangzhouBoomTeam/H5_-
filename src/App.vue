@@ -1,9 +1,12 @@
 <template>
   <div id="app">
      <div class=" back-quare background" height="100%">
+        <div class="five-mao">
+          <i class="line-img"> <i class="cicle"></i></i>
+         
+        </div>
 
         <div class="red-back card">
-
         </div>
         <div class="yellow-back back-quare card">
           <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
@@ -24,8 +27,9 @@
             <p class="tip">tips:</p>
             <p class="tip-detail">你好，我是好好先生</p>
             <div class="start-btn">
-                <button class="start-btn-img" @click="startGuess">开始预测</button>
-        </div>
+                <i class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></i>
+            </div>
+            <i class="run-img"></i>
         </div>
         
     </div>
@@ -55,6 +59,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -82,13 +87,52 @@ body{
      -webkit-repeating-linear-gradient(0deg, #eee, #eee 1px, transparent 0px, transparent 12px),
      -webkit-repeating-linear-gradient(90deg, #eee, #eee 1px, transparent 0px, transparent 12px);
 }
+.five-mao {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/5mao.png);
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+.line-img {
+  margin: -1px 50%-3px;
+  width: 2px;
+  height: 80px;
+  background-color: #000;
+  /*background-image: url(./assets/line.png);
+  background-size: 100% 100%;*/
+  display: block;
+  position: relative;
+}
+.cicle {
+  position: absolute;
+  padding: 3px;
+  bottom: -1px;
+  left: -4px;
+  background-color: #F8B619;
+  border-radius: 6px;
+  border: solid 2px #000;
+  display: inline-block;
+}
+.run-img {
+  width: 100px;
+  height: 100px;
+  background-image: url(./assets/run.png);
+  background-size: 100% 100%;
+  display: inline-block;
+  bottom: -90px;
+  position: absolute;
+  z-index: 3;
+}
 .card {
   width: 75%;
   height: 70%;
   border: solid 3px #000;
   border-radius: 2%;
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: 12.5%;
 }
 .red-back {
@@ -164,6 +208,8 @@ body{
   width: 75%;
   font-size: 20px;
   text-align: center;
+  z-index: 9;
+  position: relative;
 }
 nput::-ms-input-placeholder{text-align: center;color: #000}
 input::-webkit-input-placeholder{text-align: center; color: #000}
@@ -182,25 +228,28 @@ input:focus{
 }
 .start-btn {
      height: 50px;
-    position: absolute;
-    bottom: -5%;
+    bottom: -25px;
     width: 100%;
     text-align: center;
+    z-index: 2;
+    position: absolute;
 
 }
-
+.start-span {
+  /*position: relative;
+  bottom: -13px;*/
+}
 .start-btn-img {
-  background-image: url(./assets/start.png);
-  background-repeat: no-repeat;
   display: inline-block;
-  width: 50%;
-  height: 100%;
-  background-size: 100% 100%;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   line-height: 100%;
+  padding: 10px 20px;
   background-color:inherit;
-  border: none;
+    border: solid 2px #000;
+    border-radius: 20px;
+    box-shadow:0 5px #4471E6;
+    background-color: #F7FD18;
 }
 </style>

@@ -1,28 +1,27 @@
 <template>
     <div  class="background back-quare">
-      <p class="long-tip">长按图片可保存预测结果</p>
+      <p class="long-tip"><i class="arrow"></i>长按图片可保存预测结果</p>
         <div class="card-my footest"></div>
         <div class="card-my middle"></div>
         <div class="card-my top">
-            <p>2017年2月</p>
-            <p>过儿<span>将会在</span></p>
-            <p>一</p>
-            <p>印度尼西亚巴厘岛</p>
-            <p>举行盛大的婚礼</p>
+            <p class="date"><span >2017年2月</span></p>
+            <p class="later">过儿<span class="will">将会在</span></p>
+            <p class="one">一</p>
+            <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
+            <p class="wedding">举行盛大的婚礼</p>
             <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
         </div>
 
         <div class="btns">
-            <ul>
-              <li>再玩一次</li>
-              <li>分享出去</li>
-            </ul>
+              <i class="again-img">再玩一次</i>
+              <i class="share-img">分享出去</i>
         </div>
 
         <div class="footer">
-          <img src="" alt="">
-          <p>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</p>
-          <a href="">点击下载-></a>
+           <i class="logo"></i>
+            <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
+            <a href="">点击下载-></a>
+          
         </div>
     </div>
 </template>
@@ -41,12 +40,24 @@ export default {
   /*margin-top: 60px;*/
  height: 100%;
   width: 100%;
+  font-weight: bold;
 }
 body{
-  height: 97%;
+  height: 100%;
 }
 .long-tip {
   margin: 8% 0 2% 10%;
+  font-weight: bold;
+  font-size: 14px;
+}
+.arrow {
+  background-image: url(./assets/arrow.png);
+  width: 16px;
+  height: 11px;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 100% 100%;
 }
 .card-my {
   width: 80%;
@@ -59,7 +70,7 @@ body{
 }
 .background {
   height: 100%;
-  width: 100%;
+  /*width: 100%;*/
   background-color: #fff;
   
 }
@@ -93,9 +104,55 @@ transform:rotate(3deg);
 -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
 -o-transform:rotate(3deg);  
 }
+.date {
+  margin: 10% 0 5% 5%;
+  /*width: 78px;*/
+}
+.date span {
+    padding: 5px 15px;
+  border: solid 1px #000;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.later {
+    margin: 10% 0 2% 5%;
+    font-weight: bold;
+    font-size: 32px;
+}
+.later span {
+  margin-left: 3px;
+  font-size: 14px;
+}
+.one {
+      margin: -5% 0 0.3rem 5%;
+
+  color: #4471E6;
+  /*font-weight: bold;*/
+  font-size: 32px;
+}
+.address-img {
+  width: 20px;
+  height: 27px;
+  background-image: url(./assets/address.png);
+  background-size: 100% 100%;
+  display: inline-block;
+  margin-right: 5px;
+}
+.address {
+   margin: 0% 0 2% 5%;
+  color: #4471E6;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.wedding {
+     margin: 0% 0 2% 5%;
+  color: #4471E6;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
 .look-more {
     position: absolute;
-    bottom: -5%;
+    bottom: -22px;
     margin: 0 auto;
     text-align: center;
 }
@@ -108,21 +165,76 @@ transform:rotate(3deg);
   display: block;
 }
 .footer {
-  position: fixed;
+  position: absolute;
   bottom:20px;
-  text-align: center;
+  font-size: 12px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    vertical-align: middle;
 }
-
+.footer span {
+  margin: 0 0;
+  color: #9b9b9b;
+}
+.footer a {
+  color: #517CE8;
+  text-decoration: none;
+  display: block;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background-image: url(./assets/logo.png);
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: auto;
+  margin:0 10px 0 15px;
+  float: left;
+}
 .btns {
   position: absolute;
   height: 50px;
+  bottom: 18%;
+  
 }
 .btns ul {
-  text-align: center;
+    text-align: center;
+
 }
 .btns li {
   list-style: none;
   float: left;
-  width: 200px;
+  margin: 0 20px 0 0;
+  /*height: 44px;*/
+  border: solid 1px #000;
+  padding: 5px 20px;
+  border-radius: 22px;
+  font-weight: bold;
+
+}
+.btns li span {
+  line-height: 20px;
+}
+.again-img {
+   width: 15px;
+  height: 15px;
+  background-image: url(./assets/refresh.png);
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.share-img {
+  width: 15px ;
+  height: 15px;
+  background-image: url(./assets/share.png);
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+
+
 }
 </style>

@@ -117,8 +117,8 @@ body{
   display: inline-block;
 }
 .run-img {
-  width: 100px;
-  height: 100px;
+  width: 33%;
+  height: 25%;
   background-image: url(./assets/run.png);
   background-size: 100% 100%;
   display: inline-block;
@@ -236,8 +236,8 @@ input:focus{
 
 }
 .start-span {
-  /*position: relative;
-  bottom: -13px;*/
+  display: inline-block;
+  margin-top: 11px;
 }
 .start-btn-img {
   background-image: url(./assets/start.png);
@@ -256,5 +256,6 @@ input:focus{
     border-radius: 20px;
     box-shadow:0 5px #4471E6;
     background-color: #F7FD18;*/
+
 }
 </style>

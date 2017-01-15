@@ -1,6 +1,7 @@
 <template>
     <div  class="background back-quare">
       <p class="long-tip"><i class="arrow"></i>长按图片可保存预测结果</p>
+      <div class="cards">
         <div class="card-my footest"></div>
         <div class="card-my middle"></div>
         <div class="card-my top">
@@ -9,8 +10,10 @@
             <p class="one">一</p>
             <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
             <p class="wedding">举行盛大的婚礼</p>
-            <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
         </div>
+      </div>
+        
+        <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
         <div class="btns">
               <i class="again-img">再玩一次</i>
@@ -58,6 +61,10 @@ body{
   display: inline-block;
   vertical-align: middle;
   background-size: 100% 100%;
+}
+.cards {
+  width: 100%;
+  height: 50%;
 }
 .card-my {
   width: 80%;
@@ -151,10 +158,10 @@ transform:rotate(3deg);
   font-size: 1.3rem;
 }
 .look-more {
-    position: absolute;
-    bottom: -22px;
     margin: 0 auto;
     text-align: center;
+    width: 230px;
+    position: relative;
 }
 .look-more span {
   background-color: #F7FD18;

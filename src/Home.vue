@@ -1,7 +1,6 @@
 <template>
   <div >
      <div class=" back-quare background" height="100%">
-
         <div class="red-back card">
 
         </div>
@@ -72,8 +71,9 @@ body{
   height: 100%;
   width: 100%;
   background-color: #fff;
-  
+  z-index: 1;
 }
+
 .back-quare {
   
   background-size: 20rem 20rem;

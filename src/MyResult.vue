@@ -5,7 +5,8 @@
         <div class="card-my footest"></div>
         <div class="card-my middle"></div>
          <div class="card-my copy">
-            <img src="" id="show_img" style="width: 100%;height:100%">
+            <img src="" id="show_img" style="transform: scale(0.5,0.5) translate(-50%,-50%)
+            ;width: 200%;height:200%">
         </div>
         <div class="card-my top" id="template">
             <p class="date"><span >2017年2月</span></p>
@@ -40,23 +41,28 @@
 export default {
   
      mounted(){
-html2canvas(document.getElementById('template'),{canvas:null}).then(function(canvas){
-    console.log(canvas);
-     var dataUrl = canvas.toDataURL();
-     self.src = dataUrl
-     // document.getElementById('template').remove()
-     document.getElementById('show_img').src = dataUrl
-})
-       // html2canvas(document.getElementById('template'),{
-       //    onrendered:function(canvas){
-       //      var dataUrl = canvas.toDataURL();
-       //      // var newImg = document.createElement("img");
-       //      // newImg.src =  dataUrl;
-       //      // document.getElementById('template').remove()
-       //      document.getElementById('show_img').src = dataUrl
-       //      // document.body.appendChild(newImg);                
-       //    }
-       // })
+          console.log(window.innerWidth);
+          var w = window.innerWidth*2*0.8;
+          var h = window.innerHeight*2*0.5;
+          var div = document.querySelector('#divtoconvert');
+          var canvas = document.createElement('canvas');
+          canvas.width = 2*w;
+          canvas.height = 2*h;
+          canvas.style.width = w + 'px';
+          canvas.style.height = h + 'px';
+          var context = canvas.getContext('2d');
+          context.translate(w/4,w/4)
+          context.scale(2,2);
+          html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
+              console.log(canvas);
+              var content = canvas.getContext('2d');
+              content.scale(2,2)
+               var dataUrl = canvas.toDataURL();
+               self.src = dataUrl
+               // document.getElementById('template').remove()
+               document.getElementById('show_img').src = dataUrl
+          })
+     
      }
 };
 

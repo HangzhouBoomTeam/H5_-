@@ -16,7 +16,9 @@
             <p class="wedding">举行盛大的婚礼</p>
             <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
         </div>
-       
+        <div class="card_cover">
+            <div class="bt_cover"></div>
+        </div>
       </div>
         
         <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
@@ -140,11 +142,32 @@ body{
   margin-right: 5px;
   display: inline-block;
   vertical-align: middle;
-  background-size: 100% 100%;
+  /*background-size: 100% 100%;*/
 }
 .cards {
   width: 100%;
   height: 50%;
+}
+.card_cover{
+   width: 80%;
+  height: 50%;
+  position: absolute;
+  top: 80px;
+  left: 10%;
+   pointer-events:none;
+       border: solid 3px transparent;
+   background-size: 100% 100%;
+}
+.bt_cover{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #F7FD18;
+  background-image: url(./assets/ghost.png);
+  background-size: 100% auto;
+  background-position: bottom;
 }
 .card-my {
   width: 80%;
@@ -156,7 +179,7 @@ body{
   left: 10%;
 }
 .card-my .find_fun{
-  font-size: 8px;
+  font-size: 12px;
   position: absolute;
   bottom: 4px;
   text-align: center;

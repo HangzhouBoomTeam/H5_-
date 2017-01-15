@@ -50,7 +50,8 @@ export default {
           return ;
       }
       this.$router.push({
-                    name: 'my'
+                    name: 'my',
+                    params:{name:this.name,isMy:true}
                 });
     }
   }

@@ -10,7 +10,7 @@
         </div>
         <div class="card-my top" id="template">
             <p class="date"><span >2017年2月</span></p>
-            <p class="later">过儿<span class="will">将会在</span></p>
+            <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
             <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
             <p class="wedding">举行盛大的婚礼</p>
@@ -21,15 +21,18 @@
         
         <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
-        <div class="btns">
-            <div class="btn">
+        <div class="btns" v-if="isMy">
+            <div class="btn" @click="playAgain">
               <i class="again-img"></i>再玩一次
             </div>
-            <div class="btn">
+            <div class="btn"  @click="share">
               <i class="share-img"></i>分享出去
             </div>
         </div>
 
+        <div class="i-want" v-if="!isMy" @click="mePlay">
+            <i >我也要测</i>
+        </div>
         <div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
@@ -39,8 +42,14 @@
 </template>
 <script>
 export default {
-  
+    data () {
+      return {
+        name:'',
+        isMy:true
+      }
+    },
      mounted(){
+          this.getData();
           console.log(window.innerWidth);
           var w = window.innerWidth*2*0.8;
           var h = window.innerHeight*2*0.5;
@@ -63,11 +72,49 @@ export default {
                document.getElementById('show_img').src = dataUrl
           })
      
+     },
+     methods: {
+       getData (){
+         console.log(this.$route.params);
+          let name = this.$route.params.name;
+          if(name) {
+              this.name = name;
+          } else  {
+
+          }
+       },
+       playAgain(){
+          this.$router.replace({
+            name:'home'
+          });
+       },
+       share(){
+
+       },
+       mePlay(){
+         this.$router.replace({
+            name:'home'
+          });
+       }
      }
 };
 
 </script>
+
 <style>
+.i-want {
+  border: solid 2px #000;
+  padding: 13px 0 ;
+  border-radius: 25px;
+  font-weight: bold;
+  display: block;
+  line-height: 100%;
+  text-align: center;
+  width: 230px;
+  margin: 0 auto;
+  bottom: -5%;
+  position: relative;
+}
 #myResult {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -251,34 +298,18 @@ transform:rotate(3deg);
   height: 50px;
   bottom: 18%;
   width: 100%;
-  text-align: center;;
+  text-align: center;
 }
 .btn{
   display: inline-block;
   background-color: #fff;
   border: solid 2px #000;
-  padding: 3px 10px;
   border-radius: 25px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
+  padding:  10px 30px;
 }
-.btns ul {
-    text-align: center;
-}
-.btns li {
-  list-style: none;
-  float: left;
-  margin: 0 20px 0 0;
-  /*height: 44px;*/
-  border: solid 1px #000;
-  padding: 5px 20px;
-  border-radius: 22px;
-  font-weight: bold;
 
-}
-.btns li span {
-  line-height: 20px;
-}
 .again-img {
    width: 15px;
   height: 15px;

@@ -10,9 +10,20 @@ const router = new VueRouter({
         component: App
     }, {
         name: 'my',
-        path: '/my',
+        path: '/my/:name',
         component: MyResult
     }]
 })
+ var isFirstIn = true;
+// router.beforeEach((to, from, next) => {
+//   // ...
+// //   console.log('router before');
+// //   if(isFirstIn){
+// //       console.log(from);
+// //     //   next('home');
+// //       isFirstIn = false;
+// //   } else {
 
+// //   }
+// })
 export default router;

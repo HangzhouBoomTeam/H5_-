@@ -5,23 +5,24 @@
         <div class="card-my footest"></div>
         <div class="card-my middle"></div>
          <div class="card-my copy">
-            <img src="" id="show_img" style="transform: scale(0.5,0.5) translate(-50%,-50%)
-            ;width: 200%;height:200%">
+            <img src="" id="show_img" style="width: 100%">
         </div>
-        <div class="card-my top" id="template">
+        <div class="card-my" style="pointer-events:none;" >
+          <div id="template" class="inner_top">
             <p class="date"><span >2017年2月</span></p>
-            <p class="later">过儿<span class="will">将会在</span></p>
-            <p class="one">一</p>
-            <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
-            <p class="wedding">举行盛大的婚礼</p>
-            <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
+              <p class="later">过儿<span class="will">将会在</span></p>
+              <p class="one">一</p>
+              <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
+              <p class="wedding">举行盛大的婚礼</p>
+              <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
+          </div>
         </div>
-        <div class="card_cover">
+        <!-- <div class="card_cover">
             <div class="bt_cover"></div>
-        </div>
+        </div> -->
       </div>
         
-        <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
+        <!-- <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div> -->
 
         <div class="btns">
             <div class="btn">
@@ -44,21 +45,18 @@ export default {
   
      mounted(){
           console.log(window.innerWidth);
-          var w = window.innerWidth*2*0.8;
-          var h = window.innerHeight*2*0.5;
-          var div = document.querySelector('#divtoconvert');
+          var w = window.innerWidth*0.8;
+          var h = window.innerHeight*0.5;
           var canvas = document.createElement('canvas');
-          canvas.width = 2*w;
-          canvas.height = 2*h;
+          canvas.width = 5*w;
+          canvas.height = 5*h;
           canvas.style.width = w + 'px';
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
-          context.translate(w/4,w/4)
-          context.scale(2,2);
+          context.scale(4,4);
+          context.translate(0,-h*0.1)
           html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
-              console.log(canvas);
-              var content = canvas.getContext('2d');
-              content.scale(2,2)
+            console.log(canvas);
                var dataUrl = canvas.toDataURL();
                self.src = dataUrl
                // document.getElementById('template').remove()
@@ -131,7 +129,7 @@ body{
   top: 80px;
   left: 10%;
 }
-.card-my .find_fun{
+.find_fun{
   font-size: 12px;
   position: absolute;
   bottom: 4px;
@@ -155,10 +153,16 @@ body{
 }
 
 .top {
+  
+}
+.inner_top{
   background-color: #F7FD18 ;
   background-image: url(./assets/ghost.png);
   background-size: 100% 100%;
   pointer-events:none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 .copy{
   border: none;
@@ -186,7 +190,7 @@ transform:rotate(3deg);
 .date span {
     padding: 5px 15px;
   border: solid 1px #000;
-  border-radius: 20px;
+  border-radius: 16px;
   font-size: 12px;
 }
 .later {

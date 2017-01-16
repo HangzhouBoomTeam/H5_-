@@ -18,12 +18,12 @@
             <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
             <div></div>
         </div>
-        <!-- <div class="card_cover">
+        <div class="card_cover">
             <div class="bt_cover"></div>
-        </div> -->
+        </div>
       </div>
         
-        <!-- <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div> -->
+        <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
         <div class="btns" v-if="isMy">
             <div class="btn" @click="playAgain">
@@ -57,6 +57,8 @@ export default {
           console.log(window.innerWidth);
           var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
+          console.log(w,h);
+          if (w>h) {h=w*1.3}
           var canvas = document.createElement('canvas');
           canvas.width = 5*w;
           canvas.height = 5*h;

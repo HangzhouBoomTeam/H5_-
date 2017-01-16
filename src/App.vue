@@ -46,12 +46,13 @@ export default {
   },
   methods:{
     startGuess(){
+      window.isMe=true
       if(this.name.length === 0) {
           return ;
       }
       this.$router.push({
                     name: 'my',
-                    params:{name:this.name,isMy:true}
+                    query:{name:this.name,poss:'印度尼西亚巴厘岛2',text:'举行盛大的婚礼'}
                 });
     }
   }

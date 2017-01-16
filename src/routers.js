@@ -3,18 +3,18 @@ import MyResult from "./MyResult.vue";
 import App from "./App.vue";
 
 const router = new VueRouter({
-    mode: 'hash',
+    mode: 'history',
     routes: [{
         name: 'home',
         path: '/',
         component: App
     }, {
         name: 'my',
-        path: '/my/:name',
+        path: '/my',
         component: MyResult
     }]
 })
- var isFirstIn = true;
+var isFirstIn = true;
 // router.beforeEach((to, from, next) => {
 //   // ...
 // //   console.log('router before');

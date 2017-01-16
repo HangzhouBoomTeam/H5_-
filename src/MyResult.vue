@@ -13,8 +13,8 @@
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
-            <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
-            <p class="wedding">举行盛大的婚礼</p>
+            <p class="address"><i class="address-img"></i>{{poss}}</p>
+            <p class="wedding">{{text}}</p>
             <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
             <div></div>
         </div>
@@ -22,10 +22,10 @@
       </div>
         <div class="card_cover">
             <div class="bt_cover"></div>
-        </div>
         <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
+        </div>
 
-        <div class="btns" v-if="isMy">
+        <div class="btns" v-if="isMe">
             <div class="btn" @click="playAgain">
               <i class="again-img"></i>再玩一次
             </div>
@@ -34,13 +34,13 @@
             </div>
         </div>
 
-        <div class="i-want" v-if="!isMy" @click="mePlay">
+        <div class="i-want" v-if="!isMe" @click="mePlay">
             <i >我也要测</i>
         </div>
         <div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
-            <a href="">点击下载-></a>
+            <a :href="down_url">点击下载-></a>
         </div>
     </div>
 </template>
@@ -49,12 +49,22 @@ export default {
     data () {
       return {
         name:'',
-        isMy:true
+        down_url:'',
+        poss:'',text:'',isMe:false
       }
     },
      mounted(){
           this.getData();
-          console.log(window.innerWidth);
+          this.isMe = window.isMe || false
+          console.log(this.isMe);
+          var u = navigator.userAgent;
+          var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+          console.log('and'+isAndroid);
+          if (isAndroid) {
+            this.down_url = "http://chat.in66.com/download/?_ig=android"
+          }else{
+            this.down_url = "http://chat.in66.com/download/?_ig=ios"
+          }
           var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
           console.log(w,h);
@@ -78,8 +88,10 @@ export default {
      },
      methods: {
        getData (){
-         console.log(this.$route.params);
-          let name = this.$route.params.name;
+         console.log(this.$route);
+          let name = this.$route.query.name;
+          this.poss = this.$route.query.poss || '';
+          this.text = this.$route.query.text || '';
           if(name) {
               this.name = name;
           } else  {
@@ -116,7 +128,11 @@ export default {
   width: 230px;
   margin: 0 auto;
   bottom: -5%;
-  position: relative;
+  position: absolute;
+    bottom: 22%;
+    left: 0;right: 0;
+    width: 230px;
+
 }
 #myResult {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -154,10 +170,12 @@ body{
   height: 50%;
   position: absolute;
   top: 80px;
+  pointer-events:none;
   left: 10%;
    pointer-events:none;
        border: solid 3px transparent;
    background-size: 100% 100%;
+
 }
 .bt_cover{
   position: absolute;
@@ -186,6 +204,7 @@ body{
   text-align: center;
   left: 0;
   right: 0;
+  margin: 0px;
 }
 .background {
   height: 100%;
@@ -284,7 +303,10 @@ transform:rotate(3deg);
     margin: 0 auto;
     text-align: center;
     width: 230px;
-    position: relative;
+    position: absolute;
+    bottom: -26px;
+    left: 0;
+    right: 0;
 }
 .look-more span {
   background-color: #F7FD18;

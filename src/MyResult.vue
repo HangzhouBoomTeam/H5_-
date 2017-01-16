@@ -18,11 +18,11 @@
             <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
             <div></div>
         </div>
+        
+      </div>
         <div class="card_cover">
             <div class="bt_cover"></div>
         </div>
-      </div>
-        
         <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
         <div class="btns" v-if="isMy">

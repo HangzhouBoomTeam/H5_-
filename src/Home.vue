@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import wenan from "./wenan";
 export default {
   data () {
     return {
@@ -48,6 +49,9 @@ export default {
                     name: 'my'
                 });
     }
+  },
+  mounted(){
+    console.log('>>22');
   }
 }
 

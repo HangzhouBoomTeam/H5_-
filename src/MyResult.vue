@@ -6,7 +6,7 @@
         <div class="card-my middle"></div>
          <div class="card-my copy">
             <img src="" id="show_img" style="width: 100%">
-        <div class="look-more" @click="seeMore"><span>查看 “巴厘岛” 更多的奇遇</span></div>
+        <div class="look-more" @click="seeMore"><span>查看更多的奇遇</span></div>
 
         </div>
         <div class="card-my" style="pointer-events:none;" >

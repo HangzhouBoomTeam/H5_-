@@ -19,7 +19,7 @@
             <p class="wedding">{{text}}</p>
             <!-- <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p> -->
             <img src="./assets/down.png" class="down_bottom">
-              <img src="./assets/qr.png" class="qr_bottom">
+              <div src="" class="qr_bottom" id="qrcode"></div>
             <div></div>
         </div>
 
@@ -50,6 +50,11 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
             <a :href="down_url">点击下载-></a>
         </div>
+        <input type="hidden" id="shareTitle" value="2017你的奇遇">
+<input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
+<input type="hidden" id="shareLink" value="当前页面地址">
+<input type="hidden" id="shareImgSrc" :value="my_url">
+<input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
     </div>
 </template>
 <script>
@@ -122,7 +127,8 @@ export default {
       return {
         name:'',
         down_url:'',
-        poss:'',text:'',isMe:false,day:'',gps:'',show_tip:false
+        poss:'',text:'',isMe:false,day:'',gps:'',show_tip:false,channel:'',
+        my_url:window.location.href
       }
     },
      mounted(){
@@ -132,11 +138,8 @@ export default {
           var u = navigator.userAgent;
           var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
           console.log('and'+isAndroid);
-          if (isAndroid) {
-            this.down_url = "http://chat.in66.com/download/?_ig=android"
-          }else{
-            this.down_url = "http://chat.in66.com/download/?_ig=ios"
-          }
+          this.down_url = "http://chat.in66.com/download/?_ig="+this.channel
+          new QRCode(document.getElementById('qrcode'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel,width:150,height:150})
           setTimeout(()=>{
             var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
@@ -170,6 +173,7 @@ export default {
           this.text = this.$route.query.text || '';
           this.day = this.$route.query.time || '';
           this.gps = this.$route.query.gps || '';
+          this.channel = this.$route.query.channel || 'unknown';
           if(name) {
               this.name = name;
           } else  {
@@ -194,9 +198,8 @@ export default {
           this.show_tip =false
        },
        seeMore(){
-         http.get('guessResult*lookMore');
-          window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
-
+        window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
+        http.get('guessResult*lookMore');
        },
        mePlay(){
          http.get('guessResult*iWantPlay');
@@ -210,6 +213,10 @@ export default {
 </script>
 
 <style>
+#qrcode img{
+  width: 50px;
+  height: 50px;
+}
 .i-want {
   border: solid 2px #000;
   padding: 13px 0 ;
@@ -236,8 +243,8 @@ export default {
 .qr_bottom{
     width: 50px;
     position: absolute;
-    bottom: 0px;
-    right: 0px
+    bottom: 5px;
+    right: 5px
 }
 #myResult {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -296,7 +303,7 @@ body{
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 50px;
+  height: 55px;
   width: 100%;
   background-color: #F7FD18;
   background-image: url(./assets/ghost.png);

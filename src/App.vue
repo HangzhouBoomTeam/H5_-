@@ -24,8 +24,8 @@
                 <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
             </div>
             
-            <p class="tip">tips:</p>
-            <p class="tip-detail">1.测过的都说准2.不准的请再测一次3.谢谢</p>
+            <!-- <p class="tip">tips:</p> -->
+            <!-- <p class="tip-detail">1.测过的都说准2.不准的请再测一次3.谢谢</p> -->
             <div class="start-btn">
                 <i class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></i>
             </div>
@@ -68,9 +68,10 @@ export default {
       var now =new Date()
       var time = now.getFullYear() +'年'+ now.getDay()+'日'
       console.log(quote);
+      var _ig = this.$route.query._ig || 'unknown';
       this.$router.push({
                     name: 'my',
-                    query:{name:this.name,poss,text:quote,gps,time}
+                    query:{name:this.name,poss,text:quote,gps,time,_ig}
                 });
 
     }

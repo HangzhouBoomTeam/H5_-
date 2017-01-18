@@ -41,6 +41,7 @@
 
 <script>
 import wenan from "./wenan";
+import http from "./http.js";
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -53,7 +54,9 @@ export default {
     }
   },
   methods:{
+    
     startGuess(){
+      http.get('guessInput*startGuess');
       window.isMe=true
       if(this.name.length === 0) {
           return ;
@@ -70,6 +73,7 @@ export default {
                     name: 'my',
                     query:{name:this.name,poss,text:quote,gps,time,_ig}
                 });
+
     }
   },
   mounted(){

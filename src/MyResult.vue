@@ -53,7 +53,10 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
     </div>
 </template>
 <script>
+import http from "./http.js";
+
 export default {
+  
     data () {
       return {
         name:'',
@@ -110,20 +113,28 @@ export default {
           }
        },
        playAgain(){
+         if(this.isMe) {
+            http.get('guessResult*playAgain');
+         } else {
+            http.get('guessResult*iWantPlay');
+         }
           this.$router.replace({
             name:'home'
           });
        },
        share(){
+          http.get('guessResult*share');
           this.show_tip =true
        },
        hide(){
           this.show_tip =false
        },
        seeMore(){
-        window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?channel=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
+        window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
+        http.get('guessResult*lookMore');
        },
        mePlay(){
+         http.get('guessResult*iWantPlay');
          this.$router.replace({
             name:'home'
           });

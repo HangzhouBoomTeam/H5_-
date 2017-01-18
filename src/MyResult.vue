@@ -6,26 +6,30 @@
         <div class="card-my middle"></div>
          <div class="card-my copy">
             <img src="" id="show_img" style="width: 100%">
+        <div class="look-more" @click="seeMore"><span>查看更多的奇遇</span></div>
+
         </div>
         <div class="card-my" style="pointer-events:none;" >
           <div id="template" class="inner_top">
-            <p class="date"><span >2017年2月</span></p>
+            <p class="date"><span >{{day}}</span></p>
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
-            <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
-            <p class="wedding">举行盛大的婚礼</p>
-            <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p>
+            <p class="address"><i class="address-img"></i>{{poss}}</p>
+            <p class="wedding">{{text}}</p>
+            <!-- <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p> -->
+            <img src="./assets/down.png" class="down_bottom">
+              <img src="./assets/qr.png" class="qr_bottom">
             <div></div>
         </div>
-        
+
       </div>
         <div class="card_cover">
-            <div class="bt_cover"></div>
+            <div class="bt_cover">
+            </div>
         </div>
-        <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
 
-        <div class="btns" v-if="isMy">
+        <div class="btns" v-if="isMe">
             <div class="btn" @click="playAgain">
               <i class="again-img"></i>再玩一次
             </div>
@@ -33,29 +37,47 @@
               <i class="share-img"></i>分享出去
             </div>
         </div>
-
-        <div class="i-want" v-if="!isMy" @click="mePlay">
+<div v-if="show_tip" @click="hide"
+style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;background-color:rgba(0,0,0,.7)
+        ;">
+        <img src="./assets/here_share.png" style="padding: 20px;width: 100%">
+        </div>
+        <div class="i-want" v-if="!isMe" @click="mePlay">
             <i >我也要测</i>
         </div>
         <div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
-            <a href="">点击下载-></a>
+            <a :href="down_url">点击下载-></a>
         </div>
     </div>
 </template>
 <script>
+import http from "./http.js";
+
 export default {
+  
     data () {
       return {
         name:'',
-        isMy:true
+        down_url:'',
+        poss:'',text:'',isMe:false,day:'',gps:'',show_tip:false
       }
     },
      mounted(){
           this.getData();
-          console.log(window.innerWidth);
-          var w = window.innerWidth*0.8;
+          this.isMe = window.isMe || false
+          console.log(this.isMe);
+          var u = navigator.userAgent;
+          var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+          console.log('and'+isAndroid);
+          if (isAndroid) {
+            this.down_url = "http://chat.in66.com/download/?_ig=android"
+          }else{
+            this.down_url = "http://chat.in66.com/download/?_ig=ios"
+          }
+          setTimeout(()=>{
+            var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
           console.log(w,h);
           if (w>h) {h=w*1.3}
@@ -74,12 +96,18 @@ export default {
                // document.getElementById('template').remove()
                document.getElementById('show_img').src = dataUrl
           })
+        },500)
+          
      
      },
      methods: {
        getData (){
-         console.log(this.$route.params);
-          let name = this.$route.params.name;
+         console.log(this.$route.query);
+          let name = this.$route.query.name;
+          this.poss = this.$route.query.poss || '';
+          this.text = this.$route.query.text || '';
+          this.day = this.$route.query.time || '';
+          this.gps = this.$route.query.gps || '';
           if(name) {
               this.name = name;
           } else  {
@@ -87,14 +115,29 @@ export default {
           }
        },
        playAgain(){
+         if(this.isMe) {
+            http.get('guessResult*playAgain');
+         } else {
+            http.get('guessResult*iWantPlay');
+         }
           this.$router.replace({
             name:'home'
           });
        },
        share(){
+          http.get('guessResult*share');
+          this.show_tip =true
+       },
+       hide(){
+          this.show_tip =false
+       },
+       seeMore(){
+        window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
+        http.get('guessResult*lookMore');
 
        },
        mePlay(){
+         http.get('guessResult*iWantPlay');
          this.$router.replace({
             name:'home'
           });
@@ -116,7 +159,23 @@ export default {
   width: 230px;
   margin: 0 auto;
   bottom: -5%;
-  position: relative;
+  position: absolute;
+    bottom: 22%;
+    left: 0;right: 0;
+    width: 230px;
+
+}
+.down_bottom{
+      width: 60%;
+    position: absolute;
+    bottom: 5px;
+    left: 7%;
+}
+.qr_bottom{
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px
 }
 #myResult {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -154,16 +213,28 @@ body{
   height: 50%;
   position: absolute;
   top: 80px;
+  pointer-events:none;
   left: 10%;
    pointer-events:none;
        border: solid 3px transparent;
    background-size: 100% 100%;
+
+}
+.card_cover2{
+   width: 80%;
+  height: 50%;
+  position: absolute;
+  top: 80px;
+  left: 10%;
+       border: solid 3px transparent;
+   background-size: 100% 100%;
+
 }
 .bt_cover{
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 30px;
+  height: 50px;
   width: 100%;
   background-color: #F7FD18;
   background-image: url(./assets/ghost.png);
@@ -186,6 +257,7 @@ body{
   text-align: center;
   left: 0;
   right: 0;
+  margin: 0px;
 }
 .background {
   height: 100%;
@@ -284,7 +356,11 @@ transform:rotate(3deg);
     margin: 0 auto;
     text-align: center;
     width: 230px;
-    position: relative;
+    position: absolute;
+    bottom: -26px;
+    left: 0;
+    right: 0;
+    z-index: 200;
 }
 .look-more span {
   background-color: #F7FD18;

@@ -25,19 +25,28 @@
             </div>
             
             <p class="tip">tips:</p>
-            <p class="tip-detail">你好，我是好好先生</p>
+            <p class="tip-detail">1.测过的都说准2.不准的请再测一次3.谢谢</p>
             <div class="start-btn">
                 <i class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></i>
             </div>
             <i class="run-img"></i>
         </div>
-        
+        <div>
+          
+        </div>
     </div>
 
   </div>
 </template>
 
 <script>
+import wenan from "./wenan";
+import http from "./http.js";
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 export default {
   data () {
     return {
@@ -45,15 +54,29 @@ export default {
     }
   },
   methods:{
+    
     startGuess(){
+      http.get('guessInput*startGuess');
+      window.isMe=true
       if(this.name.length === 0) {
           return ;
       }
+      var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
+      var poss = w.name
+      var gps = w.gps.join()
+      var quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
+      var now =new Date()
+      var time = now.getFullYear() +'年'+ now.getDay()+'日'
+      console.log(quote);
       this.$router.push({
                     name: 'my',
-                    params:{name:this.name,isMy:true}
+                    query:{name:this.name,poss,text:quote,gps,time}
                 });
+
     }
+  },
+  mounted(){
+      
   }
 }
 
@@ -76,7 +99,7 @@ export default {
 body{
   height: 100%;
   position: relative;
-  min-height: 586px;
+  min-height: 616px;
   margin: 0 0;
 }
 .background {

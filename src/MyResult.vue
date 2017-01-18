@@ -50,6 +50,11 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
             <a :href="down_url">点击下载-></a>
         </div>
+        <input type="hidden" id="shareTitle" value="2017你的奇遇">
+<input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
+<input type="hidden" id="shareLink" value="当前页面地址">
+<input type="hidden" id="shareImgSrc" :value="my_url">
+<input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
     </div>
 </template>
 <script>
@@ -61,7 +66,8 @@ export default {
       return {
         name:'',
         down_url:'',
-        poss:'',text:'',isMe:false,day:'',gps:'',show_tip:false,channel:''
+        poss:'',text:'',isMe:false,day:'',gps:'',show_tip:false,channel:'',
+        my_url:window.location.href
       }
     },
      mounted(){

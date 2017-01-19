@@ -138,7 +138,12 @@ export default {
           var u = navigator.userAgent;
           var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
           console.log('and'+isAndroid);
-          this.down_url = "http://chat.in66.com/download/?_ig="+this.channel
+          if (isAndroid) {
+            this.down_url = "http://chat.in66.com/download/?_ig=android"
+          }else{
+            this.down_url = "http://chat.in66.com/download/?_ig=ios"
+          }
+          this.down_url = this.down_url+"&channel="+this.channel
           new QRCode(document.getElementById('qrcode'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel,width:150,height:150})
           setTimeout(()=>{
             var w = window.innerWidth*0.8;

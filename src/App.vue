@@ -61,7 +61,7 @@ export default {
       
       http.get('guessInput*startGuess');
       window.isMe=true
-      if(this.name.length === 0 || this.length > 5) {
+      if(this.name.length === 0 || this.name.length > 5) {
           return ;
       }
       var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
@@ -159,6 +159,21 @@ console.log(wx);
   /*margin-top: 60px;*/
  height: 100%;
   width: 100%;
+}
+@media screen and (max-width: 330px) {
+    html {
+      font-size: 12px;
+    }
+}
+@media (min-width: 331px) and (max-width: 380px) {
+    html {
+      font-size: 16px;
+    }
+}
+@media (min-width: 381px) and (max-width: 500px) {
+    html {
+      font-size: 20px
+    }
 }
 *{
   box-sizing: border-box;

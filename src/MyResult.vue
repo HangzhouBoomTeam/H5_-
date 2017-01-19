@@ -9,8 +9,9 @@
         <div class="look-more" @click="seeMore"><span>查看更多的奇遇</span></div>
 
         </div>
-        <div class="card-my" style="pointer-events:none;" >
-          <div id="template" class="inner_top">
+        <div class="card-my" style="pointer-events:none;border:none" >
+          <div id="template" class="inner_top" style="     border: solid 3px #000; 
+     border-radius: 2%; ">
             <p class="date"><span >{{day}}</span></p>
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
@@ -52,7 +53,7 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
         </div>
         <input type="hidden" id="shareTitle" value="2017你的奇遇">
 <input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
-<input type="hidden" id="shareLink" value="当前页面地址">
+<input type="hidden" id="shareLink" :value="my_url">
 <input type="hidden" id="shareImgSrc" :value="my_url">
 <input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
     </div>
@@ -249,8 +250,8 @@ export default {
 
 <style>
 #qrcode img{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .i-want {
   border: solid 2px #000;
@@ -276,7 +277,8 @@ export default {
     left: 7%;
 }
 .qr_bottom{
-    width: 50px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     bottom: 5px;
     right: 5px
@@ -313,8 +315,8 @@ body{
   height: 50%;
 }
 .card_cover{
-   width: 80%;
-  height: 50%;
+   width: 80vw;
+  height: 80vw;
   position: absolute;
   top: 80px;
   pointer-events:none;
@@ -325,8 +327,8 @@ body{
 
 }
 .card_cover2{
-   width: 80%;
-  height: 50%;
+   width: 80vw;
+  height: 50vw;
   position: absolute;
   top: 80px;
   left: 10%;
@@ -346,8 +348,8 @@ body{
   background-position: bottom;
 }
 .card-my {
-  width: 80%;
-  height: 50%;
+  width: 80vw;
+  height: 80vw;
   border: solid 3px #000;
   /*border-radius: 2%;*/
   position: absolute;
@@ -396,66 +398,71 @@ body{
 .middle {
   background-color: #F6414A;
    transform:rotate(5deg);
--ms-transform:rotate(5deg); 	/* IE 9 */
--moz-transform:rotate(7deg); 	/* Firefox */
+-ms-transform:rotate(5deg);   /* IE 9 */
+-moz-transform:rotate(7deg);  /* Firefox */
 -webkit-transform:rotate(5deg); /* Safari 和 Chrome */
 -o-transform:rotate(7deg);  
 }
 .footest {
   background-color: #3A62C7;
 transform:rotate(3deg);
--ms-transform:rotate(3deg); 	/* IE 9 */
--moz-transform:rotate(3deg); 	/* Firefox */
+-ms-transform:rotate(3deg);   /* IE 9 */
+-moz-transform:rotate(3deg);  /* Firefox */
 -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
 -o-transform:rotate(3deg);  
 }
 .date {
-  margin: 10% 0 5% 5%;
-  /*width: 78px;*/
-}
-.date span {
-    padding: 5px 15px;
-  border: solid 1px #000;
-  border-radius: 16px;
-  font-size: 12px;
-}
-.later {
-    margin: 10% 0 2% 5%;
-    font-weight: bold;
-    font-size: 32px;
-}
-.later span {
-  margin-left: 3px;
-  font-size: 14px;
-}
-.one {
-      margin: -5% 0 0.3rem 5%;
+                margin: 5% 0 6% 6%;
+                /*width: 78px;*/
+                
+                }
+            .date span {
+                padding: 5px 15px;
+                border: solid 1px #000;
+                border-radius: 16px;
+                font-size: 12px;
+                background-color: #F7FC18;
+                font-weight: bold;
+            }
+            .later {
+                margin: 5% 0 2% 5%;
+                font-weight: bold;
+                font-size: 32px;
+            }
+            .later span {
+                margin-left: 3px;
+                font-size: 14px;
+            }
+            .one {
+                margin: -5% 0 0.3rem 5%;
+                color: #4471E6;
+                font-size: 32px;
+                height: 2rem;
+            }
 
-  color: #4471E6;
-  /*font-weight: bold;*/
-  font-size: 32px;
-}
-
-.address-img {
-  width: 30px;
-  height: 30px;
-  background-image: url(./assets/address.png);
-  background-size: 100% 100%;
-  display: inline-block;
-  margin-right: 5px;
-}
-.address {
-   margin: 0% 0 2% 5%;
-  color: #4471E6;
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-.wedding {
-     margin: 0% 0 2% 5%;
-  color: #4471E6;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
+            .address-img {
+                width: 20px;
+                height: 27px;
+                background-image: url(./assets/address.png);
+                background-size: 100% 100%;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .address {
+              text-align: center;
+                margin: 0% 0 4% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                color: #000;
+                font-size: 1.5rem;
+            }
+            .wedding {
+              text-align: center;
+                margin: 0% 0 2% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
 .look-more {
     margin: 0 auto;
     text-align: center;

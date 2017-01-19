@@ -133,7 +133,35 @@ export default {
     },
      mounted(){
           this.getData();
-          this.isMe = window.isMe || false
+          this.isMe = window.isMe || false;
+          if(!this.isMe) {
+                wx.onMenuShareTimeline({
+                  title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
+                  link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.time, // 分享链接
+                  imgUrl: '', // 分享图标
+                  success: function () { 
+                      // 用户确认分享后执行的回调函数
+                  },
+                  cancel: function () { 
+                      // 用户取消分享后执行的回调函数
+                  } 
+                });
+
+                wx.onMenuShareAppMessage({
+                    title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
+                    desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+                    link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
+                    imgUrl: '', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () { 
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () { 
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+          }
           console.log(this.isMe);
           var u = navigator.userAgent;
           var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -172,6 +200,7 @@ export default {
      },
      methods: {
        getData (){
+         console.log();
          console.log(this.$route.query);
           let name = this.$route.query.name;
           this.poss = this.$route.query.poss || '';

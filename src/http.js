@@ -25,6 +25,29 @@ const get =  function (param,successCallback,failCallbak) {
                         failCallbak(error);
                     }
                 });
-}
+};
 
+const getWxToken =  function (successCallback,failCallbak) { 
+    var url = "";
+    // Vue.axios.setHeader("Access-Control-Allow-Origin", "*");
+    Vue.axios.get(url)
+                .then(function (response) {
+                    console.log(response);
+                    if(response.status === 200 ){
+                        if(successCallback) {
+                            successCallback(response.data);
+                        }
+                    } else {
+                        if(failCallbak) {
+                            failCallbak(error);
+                        }
+                    } 
+                })
+                .catch(function (error) {
+                    if(failCallbak) {
+                        failCallbak(error);
+                    }
+                });
+}
 exports.get = get;
+exports.getWxToken = getWxToken;

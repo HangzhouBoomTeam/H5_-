@@ -43,6 +43,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
+  externals: { 'wx': 'jWeixin' },
   devServer: {
     historyApiFallback: true,
     noInfo: true

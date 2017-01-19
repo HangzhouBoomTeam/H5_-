@@ -174,18 +174,19 @@ export default {
           this.down_url = this.down_url+"&channel="+this.channel
           new QRCode(document.getElementById('qrcode'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel,width:150,height:150})
           setTimeout(()=>{
+            var off = document.getElementById('template').getBoundingClientRect()
             var w = window.innerWidth*0.8;
-          var h = window.innerHeight*0.5;
+          var h = w
           console.log(w,h);
-          if (w>h) {h=w*1.3}
+          // if (w>h) {h=w*1.3}
           var canvas = document.createElement('canvas');
           canvas.width = 5*w;
           canvas.height = 5*h;
           canvas.style.width = w + 'px';
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
-          context.scale(4,4);
-          context.translate(0,-h*0.1)
+          context.scale(5,5);
+          context.translate(-off.left,-off.top)
           html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
                var dataUrl = canvas.toDataURL();

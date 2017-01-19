@@ -8,7 +8,7 @@
 
         <div class="red-back card">
         </div>
-        <div class="yellow-back back-quare card">
+        <div class="yellow-back card">
           <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
           <img class="left-img" src="./assets/left.png" alt="" width="40px" height="40px">
             <div class="guess">
@@ -25,9 +25,9 @@
             </div>
             
             <!-- <p class="tip">tips:</p> -->
-            <!-- <p class="tip-detail">1.测过的都说准2.不准的请再测一次3.谢谢</p> -->
+             <!--<p class="tip-detail">1.名字最长5个字哦</p> -->
             <div class="start-btn">
-                <i class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></i>
+                <span class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></span>
             </div>
             <i class="run-img"></i>
         </div>
@@ -56,9 +56,10 @@ export default {
   methods:{
     
     startGuess(){
+      
       http.get('guessInput*startGuess');
       window.isMe=true
-      if(this.name.length === 0) {
+      if(this.name.length === 0 || this.length > 5) {
           return ;
       }
       var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
@@ -66,7 +67,7 @@ export default {
       var gps = w.gps.join()
       var quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
       var now =new Date()
-      var time = now.getFullYear() +'年'+ now.getDay()+'日'
+      var time = now.getFullYear() +'年'+ getRandomIntInclusive(2,12)+'月'
       console.log(quote);
       var _ig = this.$route.query._ig || 'unknown';
       this.$router.push({
@@ -177,7 +178,15 @@ body{
 }
 .yellow-back {
   background-color: #F7FC18;
+  /*border: solid 2px #000;*/
 }
+
+
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 .right-img {
   position: absolute;
   top: 15%;
@@ -268,6 +277,7 @@ input:focus{
 .start-span {
   display: inline-block;
   margin-top: 11px;
+
 }
 .start-btn-img {
   background-image: url(./assets/start.png);

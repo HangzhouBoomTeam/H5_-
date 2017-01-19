@@ -3,7 +3,7 @@ import MyResult from "./MyResult.vue";
 import App from "./App.vue";
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     routes: [{
         name: 'home',
         path: '/',

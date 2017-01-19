@@ -436,8 +436,8 @@ transform:rotate(3deg);
 }
 
 .address-img {
-  width: 20px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
   background-image: url(./assets/address.png);
   background-size: 100% 100%;
   display: inline-block;

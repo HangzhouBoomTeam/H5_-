@@ -486,7 +486,7 @@ transform:rotate(3deg);
                 margin-right: 5px;
             }
             .address {
-              text-align: center;
+              /*text-align: center;*/
                 margin: 0% 0 4% 5%;
                 color: #4471E6;
                 font-weight: bold;
@@ -494,7 +494,7 @@ transform:rotate(3deg);
                 font-size: 1.5rem;
             }
             .wedding {
-              text-align: center;
+              /*text-align: center;*/
                 margin: 0% 0 2% 5%;
                 color: #4471E6;
                 font-weight: bold;

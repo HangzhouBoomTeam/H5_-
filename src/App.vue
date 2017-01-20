@@ -49,6 +49,13 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 export default {
   data () {
     return {
@@ -99,6 +106,7 @@ export default {
       });
 
       var _ig = this.$route.query._ig || 'unknown';
+      setCookie('name',this.name,100)
       this.$router.push({
                     name: 'my',
                     query:{name:this.name,poss,text:quote,gps,time,_ig}

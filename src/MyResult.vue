@@ -16,10 +16,10 @@
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
-            <p class="address"><i class="address-img"></i>{{poss}}</p>
+            <p class="address" ><i class="address-img" id="address_id"></i>{{poss}}</p>
             <p class="wedding">{{text}}</p>
             <!-- <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p> -->
-            <img src="./assets/down.png" class="down_bottom">
+            <img src="./assets/down.png" id="down_id" class="down_bottom">
               <div src="" class="qr_bottom" id="qrcode"></div>
             <div></div>
         </div>
@@ -63,6 +63,20 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
 </template>
 <script>
 import http from "./http.js";
+import ghost from "./base64/ghost";
+import down from "./base64/down";
+import address from "./base64/address";
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
 var touchFunc = function(obj,type,func) {
     //滑动范围在5x5内则做点击处理，s是开始，e是结束
     var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
@@ -136,8 +150,13 @@ export default {
       }
     },
      mounted(){
+          document.getElementById("template").style.backgroundImage = "url("+ghost+")"
+           document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+            document.getElementById("down_id").src = down
           this.getData();
           this.isMe = window.isMe || false;
+
+          this.isMe = getCookie('name' )== this.name
           if(!this.isMe) {
                 wx.onMenuShareTimeline({
                   title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
@@ -403,7 +422,7 @@ body{
 }
 .inner_top{
   background-color: #F7FD18 ;
-  background-image: url(./assets/ghost.png);
+  /*background-image: url(./assets/ghost.png);*/
   background-size: 100% 100%;
   pointer-events:none;
   width: 100%;

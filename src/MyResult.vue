@@ -408,14 +408,14 @@ body{
   background-color: #fff;
   
 }
-.back-quare {
+/*.back-quare {
   
   background-size: 20rem 20rem;
   border: solid 1px #f8f8f8;
   background-image:
      -webkit-repeating-linear-gradient(0deg, #eee, #eee 1px, transparent 0px, transparent 12px),
      -webkit-repeating-linear-gradient(90deg, #eee, #eee 1px, transparent 0px, transparent 12px);
-}
+}*/
 
 .top {
   

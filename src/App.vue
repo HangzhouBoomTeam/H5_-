@@ -202,12 +202,18 @@ body{
   
 }
 .back-quare {
-  
-  background-size: 20rem 20rem;
+         border-left: 1px solid #f8f8f8;
+    border-top: 1px solid #f8f8f8;
+    background-image: -webkit-linear-gradient(180deg, #eee 1px, transparent 1px) , -webkit-linear-gradient(90deg, #eee 1px, transparent 1px);
+    background-size: 0.8rem 0.8rem;
+    /*line-height: 10px;*/
+    /*font-size: 10px;*/
+    /*letter-spacing: 5px;*/
+ /* background-size: 20rem 20rem;
   border: solid 1px #f8f8f8;
   background-image:
      -webkit-repeating-linear-gradient(0deg, #eee, #eee 1px, transparent 0px, transparent 12px),
-     -webkit-repeating-linear-gradient(90deg, #eee, #eee 1px, transparent 0px, transparent 12px);
+     -webkit-repeating-linear-gradient(90deg, #eee, #eee 1px, transparent 0px, transparent 12px);*/
 }
 .five-mao {
   width: 100%;

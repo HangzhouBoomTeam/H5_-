@@ -44,14 +44,16 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
         <img src="./assets/here_share.png" style="padding: 20px;width: 100%">
         </div>
         <div class="i-want" v-if="!isMe" @click="mePlay">
-            <i >我也要测</i>
+            <span >我也要测</span>
         </div>
         <!--<div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
             <a :href="down_url">点击下载-></a>
         </div>-->
-        <div class="footer-down"></div>
+        <div class="footer-down">
+          <a class="down-a" :href="down_url"></a>
+        </div>
         <input type="hidden" id="shareTitle" value="2017你的奇遇">
           <input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
           <input type="hidden" id="shareLink" :value="my_url">
@@ -159,7 +161,7 @@ export default {
                 wx.onMenuShareTimeline({
                   title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
                   link:window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.time, // 分享链接
-                  imgUrl: '', // 分享图标
+                  imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
                   success: function () { 
                       // 用户确认分享后执行的回调函数
                   },
@@ -172,7 +174,7 @@ export default {
                     title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
                     desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
                     link: window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
-                    imgUrl: '', // 分享图标
+                    imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: function () { 
@@ -269,13 +271,19 @@ export default {
 </script>
 
 <style>
+.down-a {
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  float: right;
+}
 #qrcode img{
   width: 40px;
   height: 40px;
 }
 .footer-down {
   width: 100%;
-  height: 50px;
+  height: 55px;
   background-image: url(./assets/download.png);
   background-size: 100%;
   position: fixed;

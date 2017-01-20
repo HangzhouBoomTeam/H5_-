@@ -21,7 +21,7 @@
               <i class="meet-img"></i>
             </div>
             <div class="name-input" >
-                <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
+                <input type="text" name="name" maxlength="5" value="" placeholder="请输入姓名" v-model="name">
             </div>
             
             <!-- <p class="tip">tips:</p> -->
@@ -74,7 +74,7 @@ export default {
       wx.onMenuShareTimeline({
         title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
         link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
-        imgUrl: '', // 分享图标
+        imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
         success: function () { 
             // 用户确认分享后执行的回调函数
         },
@@ -87,7 +87,7 @@ export default {
           title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
           desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
           link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
-          imgUrl: '', // 分享图标
+          imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
           type: '', // 分享类型,music、video或link，不填默认为link
           dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
           success: function () { 
@@ -124,7 +124,7 @@ export default {
 wx.onMenuShareTimeline({
         title: '听说这事宇宙最准占卜，猛戳进入你的奇遇', // 分享标题
         link: window.location.host, // 分享链接
-        imgUrl: '', // 分享图标
+        imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
         success: function () { 
             // 用户确认分享后执行的回调函数
         },
@@ -136,7 +136,7 @@ wx.onMenuShareTimeline({
           title:'2017 你的奇遇', // 分享标题
           desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
           link:  'http://'+window.location.host, // 分享链接
-          imgUrl: '', // 分享图标
+          imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
           type: '', // 分享类型,music、video或link，不填默认为link
           dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
           success: function () { 

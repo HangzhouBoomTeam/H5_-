@@ -195,8 +195,10 @@ export default {
             this.down_url = "http://chat.in66.com/download/?_ig=ios"
           }
           this.down_url = this.down_url+"&channel="+this.channel
+          document.getElementById('qrcode').style.visibility = 'hidden'
           new QRCode(document.getElementById('qrcode'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel,width:150,height:150})
           setTimeout(()=>{
+            document.getElementById('qrcode').style.visibility = 'visible'
             var off = document.getElementById('template').getBoundingClientRect()
             var w = window.innerWidth*0.8;
           var h = w

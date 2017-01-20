@@ -16,10 +16,10 @@
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
-            <p class="address"><i class="address-img"></i>{{poss}}</p>
+            <p class="address" ><i class="address-img" id="address_id"></i>{{poss}}</p>
             <p class="wedding">{{text}}</p>
             <!-- <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p> -->
-            <img src="./assets/down.png" class="down_bottom">
+            <img src="./assets/down.png" id="down_id" class="down_bottom">
               <div src="" class="qr_bottom" id="qrcode"></div>
             <div></div>
         </div>
@@ -46,21 +46,35 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
         <div class="i-want" v-if="!isMe" @click="mePlay">
             <i >我也要测</i>
         </div>
-        <div class="footer">
+        <!--<div class="footer">
            <i class="logo"></i>
             <span>上香蕉聊天App,发现各地小伙伴的巧妙趣闻！</span>
             <a :href="down_url">点击下载-></a>
-        </div>
+        </div>-->
+        <div class="footer-down"></div>
         <input type="hidden" id="shareTitle" value="2017你的奇遇">
-<input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
-<input type="hidden" id="shareLink" :value="my_url">
-<input type="hidden" id="shareImgSrc" :value="my_url">
-<input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
+          <input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
+          <input type="hidden" id="shareLink" :value="my_url">
+          <input type="hidden" id="shareImgSrc" :value="my_url">
+          <input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
     </div>
 </template>
 <script>
 import http from "./http.js";
 import ghost from "./base64/ghost";
+import down from "./base64/down";
+import address from "./base64/address";
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
 var touchFunc = function(obj,type,func) {
     //滑动范围在5x5内则做点击处理，s是开始，e是结束
     var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
@@ -135,12 +149,16 @@ export default {
     },
      mounted(){
           document.getElementById("template").style.backgroundImage = "url("+ghost+")"
+           document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+            document.getElementById("down_id").src = down
           this.getData();
           this.isMe = window.isMe || false;
+
+          this.isMe = getCookie('name' )== this.name
           if(!this.isMe) {
                 wx.onMenuShareTimeline({
                   title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
-                  link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.time, // 分享链接
+                  link:window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.time, // 分享链接
                   imgUrl: '', // 分享图标
                   success: function () { 
                       // 用户确认分享后执行的回调函数
@@ -153,7 +171,7 @@ export default {
                 wx.onMenuShareAppMessage({
                     title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
                     desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
-                    link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
+                    link: window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
                     imgUrl: '', // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -254,6 +272,15 @@ export default {
 #qrcode img{
   width: 40px;
   height: 40px;
+}
+.footer-down {
+  width: 100%;
+  height: 50px;
+  background-image: url(./assets/download.png);
+  background-size: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-repeat: no-repeat;
 }
 .i-want {
   border: solid 2px #000;
@@ -443,8 +470,8 @@ transform:rotate(3deg);
             }
 
             .address-img {
-                width: 20px;
-                height: 27px;
+                width: 30px;
+                height: 30px;
                 background-image: url(./assets/address.png);
                 background-size: 100% 100%;
                 display: inline-block;
@@ -515,7 +542,7 @@ transform:rotate(3deg);
 .btns {
   position: absolute;
   height: 50px;
-  bottom: 18%;
+  bottom: 23%;
   width: 100%;
   text-align: center;
 }

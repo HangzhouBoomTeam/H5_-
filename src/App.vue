@@ -49,6 +49,13 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 export default {
   data () {
     return {
@@ -73,7 +80,7 @@ export default {
       console.log(quote);
       wx.onMenuShareTimeline({
         title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
-        link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
+        link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
         imgUrl: '', // 分享图标
         success: function () { 
             // 用户确认分享后执行的回调函数
@@ -86,7 +93,7 @@ export default {
       wx.onMenuShareAppMessage({
           title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
           desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
-          link:'http://'+ window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
+          link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
           imgUrl: '', // 分享图标
           type: '', // 分享类型,music、video或link，不填默认为link
           dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -99,6 +106,7 @@ export default {
       });
 
       var _ig = this.$route.query._ig || 'unknown';
+      setCookie('name',this.name,100)
       this.$router.push({
                     name: 'my',
                     query:{name:this.name,poss,text:quote,gps,time,_ig}
@@ -107,20 +115,23 @@ export default {
     }
   },
   mounted(){
-//       wx.config({
-//         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-//         appId: 'wxf3c0d02d1cacdab4', // 必填，公众号的唯一标识
-//         timestamp: dasd, // 必填，生成签名的时间戳
-//         nonceStr: '', // 必填，生成签名的随机串
-//         signature: '',// 必填，签名，见附录1
-//         jsApiList: [onMenuShareTimeline,onMenuShareAppMessage,onMenuShareQZone,onMenuShareQQ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-//     });
-// wx.ready(function(){
-// 	console.log('dasdas');
+
+// http.getWxToken(function (json) {  
+// 	wx.config({
+// 		debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+// 		appId: json.appId, // 必填，公众号的唯一标识
+// 		timestamp: json.timestamp, // 必填，生成签名的时间戳
+// 		nonceStr: json.nonceStr, // 必填，生成签名的随机串
+// 		signature: json.signature,// 必填，签名，见附录1
+// 		jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQZone','onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+// 	});
+// 	wx.ready(function(){
+// 		alert('haha');
+// 	});
 // });
 wx.onMenuShareTimeline({
         title: '听说这事宇宙最准占卜，猛戳进入你的奇遇', // 分享标题
-        link:'http://'+ window.location.host, // 分享链接
+        link: window.location.host, // 分享链接
         imgUrl: '', // 分享图标
         success: function () { 
             // 用户确认分享后执行的回调函数

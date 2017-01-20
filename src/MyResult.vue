@@ -60,6 +60,7 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
 </template>
 <script>
 import http from "./http.js";
+import ghost from "./base64/ghost";
 var touchFunc = function(obj,type,func) {
     //滑动范围在5x5内则做点击处理，s是开始，e是结束
     var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
@@ -133,6 +134,7 @@ export default {
       }
     },
      mounted(){
+          document.getElementById("template").style.backgroundImage = "url("+ghost+")"
           this.getData();
           this.isMe = window.isMe || false;
           if(!this.isMe) {
@@ -385,7 +387,7 @@ body{
 }
 .inner_top{
   background-color: #F7FD18 ;
-  background-image: url(./assets/ghost.png);
+  /*background-image: url(./assets/ghost.png);*/
   background-size: 100% 100%;
   pointer-events:none;
   width: 100%;

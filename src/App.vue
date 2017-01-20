@@ -170,7 +170,7 @@ console.log(wx);
 }
 @media (min-width: 331px) and (max-width: 380px) {
     html {
-      font-size: 16px;
+      font-size: 15px;
     }
 }
 @media (min-width: 381px) and (max-width: 500px) {

@@ -6,7 +6,7 @@
         <div class="card-my middle"></div>
          <div class="card-my copy">
             <img src="" id="show_img" style="width: 100%">
-        <div class="look-more" @click="seeMore"><span>查看更多的奇遇</span></div>
+        <div class="look-more" @click="seeMore"><span>查看"{{poss}}"更多的奇遇</span></div>
 
         </div>
         <div class="card-my" style="pointer-events:none;border:none" >
@@ -484,12 +484,13 @@ transform:rotate(3deg);
 .look-more {
     margin: 0 auto;
     text-align: center;
-    width: 230px;
+    /*width: 15rem;*/
     position: absolute;
     bottom: -26px;
     left: 0;
     right: 0;
     z-index: 200;
+    font-size: 0.7rem;
 }
 .look-more span {
   background-color: #F7FD18;
@@ -497,7 +498,7 @@ transform:rotate(3deg);
   padding: 10px 14px ;
   border-radius: 25px;
   font-weight: bold;
-  display: block;
+  display: inline-block;
 }
 .footer {
   position: absolute;

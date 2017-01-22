@@ -57,7 +57,7 @@ style="position: fixed;top:0;left:0;width: 100%;height:100%;z-index:2200;backgro
         <input type="hidden" id="shareTitle" value="2017你的奇遇">
           <input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
           <input type="hidden" id="shareLink" :value="my_url">
-          <input type="hidden" id="shareImgSrc" :value="my_url">
+          <input type="hidden" id="shareImgSrc" value="http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2">
           <input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
     </div>
 </template>
@@ -211,7 +211,7 @@ export default {
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
           context.scale(5,5);
-          context.translate(-off.left,-off.top)
+          context.translate(-off.left,-off.top-document.body.scrollTop)
           html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
                var dataUrl = canvas.toDataURL();

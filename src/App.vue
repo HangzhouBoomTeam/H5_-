@@ -29,6 +29,11 @@
             <div class="start-btn">
                 <span class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></span>
             </div>
+            <input type="hidden" id="shareTitle" value="2017你的奇遇">
+          <input type="hidden" id="shareDesc" value="听说这是宇宙最准占卜，猛戳进入>>">
+          <input type="hidden" id="shareLink" :value="my_url">
+          <input type="hidden" id="shareImgSrc" value="http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2">
+          <input type="hidden" id="shareCallback" value="http://stats1.jiuyan.info/onepiece/promo_forecast_channelName_pageName.html?_ig=share_pageName">
             <i class="run-img"></i>
         </div>
         <div>
@@ -59,7 +64,7 @@ function setCookie(cname,cvalue,exdays)
 export default {
   data () {
     return {
-      name: ''
+      name: '',my_url:window.location.href
     }
   },
   methods:{

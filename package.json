@@ -5,7 +5,7 @@
   "author": "no",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --host 192.168.3.123 --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
@@ -13,7 +13,7 @@
     "vue": "^2.1.0",
     "vue-axios": "^1.2.2",
     "vue-router": "^2.1.1"
-      },
+  },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",

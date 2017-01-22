@@ -16,7 +16,10 @@
 
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
-            <p class="address" ><i class="address-img" id="address_id"></i>{{poss}}</p>
+            <!--<p class="address" ><i class="address-img" id="address_id"></i>{{poss}}</p>-->
+                        <p class="address" ><img src="./assets/address.png" class="address-img" id="address_id" alt=""></i>{{poss}}</p>
+
+            <!--<p class="address"><span class="demoSpan1"></span></p>-->
             <p class="wedding">{{text}}</p>
             <!-- <p class="find_fun">上蕉蕉聊天App,发现各地小伙伴的巧妙见闻</p> -->
             <img src="./assets/down.png" id="down_id" class="down_bottom">
@@ -73,6 +76,7 @@ function getCookie(cname)
   for(var i=0; i<ca.length; i++) 
   {
     var c = ca[i].trim();
+    alert(c);
     if (c.indexOf(name)==0) return c.substring(name.length,c.length);
   }
   return "";
@@ -151,12 +155,14 @@ export default {
     },
      mounted(){
           document.getElementById("template").style.backgroundImage = "url("+ghost+")"
-           document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+          //  document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+            document.getElementById("address_id").style.width = "30px";
+                        document.getElementById("address_id").style.height = "30px";
+
             document.getElementById("down_id").src = down
           this.getData();
           this.isMe = window.isMe || false;
-
-          this.isMe = getCookie('name' )== this.name
+          this.isMe = window.localStorage.name == this.name
           if(!this.isMe) {
                 wx.onMenuShareTimeline({
                   title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
@@ -171,6 +177,34 @@ export default {
                 });
 
                 wx.onMenuShareAppMessage({
+                    title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
+                    desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+                    link: window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
+                    imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () { 
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () { 
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                 wx.onMenuShareWeibo({
+                    title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
+                    desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+                    link: window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
+                    imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () { 
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () { 
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                 wx.onMenuShareQQ({
                     title: this.name +'  2017  年将会在 '+this.poss +' 有一次神秘奇遇', // 分享标题
                     desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
                     link: window.location.host+'/?name='+this.name+'&poss='+this.poss+'&gps='+this.gps+'&time='+this.day, // 分享链接
@@ -279,6 +313,13 @@ export default {
   display: inline-block;
   float: right;
 }
+ .address span{height:40px; width:40px; display:block; position:relative;} 
+
+ .demoSpan1{width:26px;}
+
+ .demoSpan1:before{content:''; height:16px; width:16px; border:5px solid #333; display:block; position:absolute; top:2px; left:0px; z-index:1; line-height:26px; border-radius:40px;-webkit-border-radius:40px;-moz-border-radius:40px; color:#fff; text-align:center;}
+
+ .demoSpan1:after{content:''; height:0px; width:0px; display:block; position:absolute; bottom:2px; left:3px; border:10px transparent solid; border-top-color:#333; border-width:15px 10px 0px 10px; }
 #qrcode img{
   width: 40px;
   height: 40px;

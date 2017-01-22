@@ -109,9 +109,38 @@ export default {
               // 用户取消分享后执行的回调函数
           }
       });
+      wx.onMenuShareWeibo({
+          title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
+          desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+          link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
+          imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+          type: '', // 分享类型,music、video或link，不填默认为link
+          dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+          success: function () { 
+              // 用户确认分享后执行的回调函数
+          },
+          cancel: function () { 
+              // 用户取消分享后执行的回调函数
+          }
+      });
+      wx.onMenuShareQQ({
+          title: this.name +'  2017  年将会在'+poss +'有一次神秘奇遇', // 分享标题
+          desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+          link: window.location.host+'/?name='+this.name+'&poss='+poss+'&gps='+gps+'&time='+time, // 分享链接
+          imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+          type: '', // 分享类型,music、video或link，不填默认为link
+          dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+          success: function () { 
+              // 用户确认分享后执行的回调函数
+          },
+          cancel: function () { 
+              // 用户取消分享后执行的回调函数
+          }
+      });
 
       var _ig = this.$route.query._ig || 'unknown';
-      setCookie('name',this.name,100)
+      // setCookie('name',this.name,100);
+      window.localStorage.name = this.name;
       this.$router.push({
                     name: 'my',
                     query:{name:this.name,poss,text:quote,gps,time,_ig}
@@ -121,6 +150,8 @@ export default {
   },
   mounted(){
 
+    var img =  new Image();
+    img.src = "h"
 // http.getWxToken(function (json) {  
 // 	wx.config({
 // 		debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -159,6 +190,34 @@ wx.onMenuShareTimeline({
               // 用户取消分享后执行的回调函数
           }
       });
+    wx.onMenuShareWeibo({
+      title:'2017 你的奇遇', // 分享标题
+      desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+      link:  'http://'+window.location.host, // 分享链接
+      imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () { 
+          // 用户确认分享后执行的回调函数
+      },
+      cancel: function () { 
+          // 用户取消分享后执行的回调函数
+      }
+    });
+     wx.onMenuShareQQ({
+      title:'2017 你的奇遇', // 分享标题
+      desc: '听说这事宇宙最准占卜，猛戳进入 >>', // 分享描述
+      link:  'http://'+window.location.host, // 分享链接
+      imgUrl: 'http://i1.jiuyan.info/2017/01/20/35EA232F-C7A6-4AE5-A009-8BD0C3476915.jpg?v=2', // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () { 
+          // 用户确认分享后执行的回调函数
+      },
+      cancel: function () { 
+          // 用户取消分享后执行的回调函数
+      }
+    });
 console.log(wx);
   }
 }

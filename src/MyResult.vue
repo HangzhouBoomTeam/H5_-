@@ -211,7 +211,7 @@ export default {
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
           context.scale(5,5);
-          context.translate(-off.left,-off.top)
+          context.translate(-off.left,-off.top-document.body.scrollTop)
           html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
                var dataUrl = canvas.toDataURL();

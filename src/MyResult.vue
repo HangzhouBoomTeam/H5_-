@@ -17,7 +17,7 @@
             <p class="later">{{name}}<span class="will">将会在</span></p>
             <p class="one">一</p>
             <!--<p class="address" ><i class="address-img" id="address_id"></i>{{poss}}</p>-->
-                        <p class="address" ><img src="./assets/address.png" class="address-img" id="address_id" alt=""></i>{{poss}}</p>
+            <p class="address" ><img src="./assets/address.png" class="address-img" id="address_id" alt=""></i>{{poss}}</p>
 
             <!--<p class="address"><span class="demoSpan1"></span></p>-->
             <p class="wedding">{{text}}</p>
@@ -76,7 +76,6 @@ function getCookie(cname)
   for(var i=0; i<ca.length; i++) 
   {
     var c = ca[i].trim();
-    alert(c);
     if (c.indexOf(name)==0) return c.substring(name.length,c.length);
   }
   return "";
@@ -230,7 +229,12 @@ export default {
           }
           this.down_url = this.down_url+"&channel="+this.channel
           document.getElementById('qrcode').style.visibility = 'hidden'
-          new QRCode(document.getElementById('qrcode'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel,width:150,height:150})
+
+        var qrUrl = 'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel;
+            http.shortUrlGet(qrUrl,function (data) {  
+                new QRCode(document.getElementById('qrcode'),{text:data[0].url_short,width:160,height:160})        
+        });
+
           setTimeout(()=>{
             document.getElementById('qrcode').style.visibility = 'visible'
             var off = document.getElementById('template').getBoundingClientRect()
@@ -594,7 +598,7 @@ transform:rotate(3deg);
 .btns {
   position: absolute;
   height: 50px;
-  bottom: 23%;
+  bottom: 18%;
   width: 100%;
   text-align: center;
 }

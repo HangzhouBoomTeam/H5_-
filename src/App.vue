@@ -149,7 +149,7 @@ export default {
     }
   },
   mounted(){
-
+      
     var img =  new Image();
     img.src = "h"
 // http.getWxToken(function (json) {  
@@ -260,7 +260,7 @@ body{
   margin: 0 0;
 }
 .background {
-  height: 100%;
+  height:   100%;
   width: 100%;
   background-color: #fff;
   

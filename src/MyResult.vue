@@ -231,9 +231,10 @@ export default {
           document.getElementById('qrcode').style.visibility = 'hidden'
 
         var qrUrl = 'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this.channel;
-            http.shortUrlGet(qrUrl,function (data) {  
-                new QRCode(document.getElementById('qrcode'),{text:data[0].url_short,width:160,height:160})        
-        });
+            // http.shortUrlGet(qrUrl,function (data) {  
+        // });
+          new QRCode(document.getElementById('qrcode'),{text:qrUrl,width:160,height:160})        
+
 
           setTimeout(()=>{
             document.getElementById('qrcode').style.visibility = 'visible'
